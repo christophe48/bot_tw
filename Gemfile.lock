@@ -6,10 +6,12 @@ GEM
     ast (2.4.0)
     buftok (0.2.0)
     coderay (1.1.2)
+    daemons (1.3.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
     equalizer (0.0.11)
+    eventmachine (1.2.7)
     http (3.3.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -34,6 +36,7 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (4.0.1)
     rainbow (3.0.0)
+    roauth (0.0.8)
     rubocop (0.57.2)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -45,6 +48,9 @@ GEM
     ruby-progressbar (1.10.1)
     simple_oauth (0.3.1)
     thread_safe (0.3.6)
+    tweetstream (1.0.5)
+      daemons
+      twitter-stream
     twitter (6.2.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -56,6 +62,9 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    twitter-stream (0.1.12)
+      eventmachine (>= 0.12.8)
+      roauth (>= 0.0.2)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
@@ -68,6 +77,7 @@ DEPENDENCIES
   dotenv
   pry
   rubocop (~> 0.57.2)
+  tweetstream
   twitter
 
 RUBY VERSION

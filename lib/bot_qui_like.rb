@@ -5,6 +5,7 @@ require 'dotenv'# n'oublie pas les lignes pour Dotenv ici…
 Dotenv.load('.env')
 
 # quelques lignes qui appellent les clés d'API de ton fichier .env
+
 client = Twitter::REST::Client.new do |config|
  config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
  config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
@@ -12,12 +13,7 @@ client = Twitter::REST::Client.new do |config|
  config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
 end
 
-describe "the login_twitter method" do
-  it "should return client, and client is not nil" do
-    expect(login_twitter).not_to be_nil
-  end
-end
-
-
-# ligne qui permet de tweeter sur ton compte
-client.update('Bonjour, ceci est mon premier tweet en Ruby !!!!')
+#je collect les info que je cherche avec client search
+like_this = client.search("#bonjour_monde", recent_type: "recent").take(25)
+#je like ma recherche avec client.favorite
+client.favorite(like_this)
